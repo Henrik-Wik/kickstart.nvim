@@ -94,6 +94,10 @@ Structure Notes:
   You can add new plugins by creating files in lua/plugins/
 ]]
 
+-- Must be set before plugins load so <leader> mappings use space
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- Install lazy.nvim plugin manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then

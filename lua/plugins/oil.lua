@@ -11,14 +11,4 @@ return {
       vim.keymap.set('n', '-', '<cmd>Oil<CR>', { desc = 'Open parent directory' })
     end,
   },
-  {
-    'tpope/vim-dadbod',
-  },
-  {
-    'kristijanhusak/vim-dadbod-ui',
-    dependencies = { 'tpope/vim-dadbod' },
-  },
-  {
-    'kristijanhusak/vim-dadbod-completion',
-  },
 }

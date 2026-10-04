@@ -1,5 +1,3 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = false
 
 vim.o.number = true
@@ -9,18 +7,20 @@ vim.o.showmode = false
 
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
-vim.g.clipboard = {
-  name = 'WSL Clipboard',
-  copy = {
-    ['+'] = 'win32yank-copy',
-    ['*'] = 'win32yank-copy',
-  },
-  paste = {
-    ['+'] = 'win32yank-paste',
-    ['*'] = 'win32yank-paste',
-  },
-  cache_enabled = 0,
-}
+if vim.fn.has 'wsl' == 1 then
+  vim.g.clipboard = {
+    name = 'WSL Clipboard',
+    copy = {
+      ['+'] = 'win32yank-copy',
+      ['*'] = 'win32yank-copy',
+    },
+    paste = {
+      ['+'] = 'win32yank-paste',
+      ['*'] = 'win32yank-paste',
+    },
+    cache_enabled = 0,
+  }
+end
 
 vim.o.breakindent = true
 vim.o.undofile = true

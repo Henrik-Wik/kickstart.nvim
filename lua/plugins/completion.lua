@@ -11,7 +11,12 @@ return {
           if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then return end
           return 'make install_jsregexp'
         end)(),
+        dependencies = { 'rafamadriz/friendly-snippets' },
         opts = {},
+        config = function(_, opts)
+          require('luasnip').setup(opts)
+          require('luasnip.loaders.from_vscode').lazy_load()
+        end,
       },
     },
     opts = {
@@ -25,7 +30,7 @@ return {
         documentation = { auto_show = false, auto_show_delay_ms = 500 },
       },
       sources = {
-        default = { 'lsp', 'path', 'snippets' },
+        default = { 'lsp', 'buffer', 'path', 'snippets' },
         per_filetype = {
           sql = { 'snippets', 'dadbod', 'buffer' },
         },
